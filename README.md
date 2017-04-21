@@ -27,11 +27,18 @@ npm run build
 ```
 
 ## Deploy
-Deploy to Lambda from the `/dist` directory.
+Deploy to Lambda (from the `/dist` directory).
 ```
-cd dist
-serverless deploy -v
+# deploy to dev
+npm run deploy:dev
+
+# deploy to qa
+npm run deploy:qa
+
+# deploy to prod
+npm run deploy:prod
 ```
+
 ## Endpoint
 When deploying, the Serverless CLI will output your endpoint. Example:
 https://h4wu9wgyqj.execute-api.us-east-1.amazonaws.com/dev/query?myParam=Hello%2C%20World
