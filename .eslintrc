@@ -1,0 +1,22 @@
+{
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true,
+    "mocha": true
+  },
+  "extends": [
+    "standard"
+  ],
+  "globals": {
+    "expect": true,
+    "sinon": true,
+    "chai": true,
+    "browser": true
+  },
+  "parser": "babel-eslint",
+  "plugins": [
+    "promise",
+    "standard"
+  ]
+}

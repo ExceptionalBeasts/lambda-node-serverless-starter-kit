@@ -1,0 +1,20 @@
+service: lambda-node-boilerplate # NOTE: update this with your Lambda service name
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  stage: dev
+  region: us-east-1
+
+functions:
+  handler:
+    handler: lambda-service.handler
+    events: # Creates API Gateway endpoint
+        - http:
+            path: query # Note: Creates API Gateway route. Update for your implementation.
+            method: GET
+            integration: lambda
+            request:
+              template:
+                # Copies querystring param "myParam" (on right) to Lambda "events.myParam" (on left)
+                application/json: '{ "myParam" : "$input.params(''myParam'')" }'
