@@ -21,16 +21,22 @@ npm test
 ```
 
 ## Build
-Build your deployables to the `/dist` directory:
+Build your deployables (to the `/dist` directory):
 ```
 npm run build
 ```
 
 ## Deploy
-Deploy to Lambda from the `/dist` directory.
+Deploy to Lambda (from the `/dist` directory).
 ```
-cd dist
-serverless deploy -v
+# deploy to dev
+npm run deploy:dev
+
+# deploy to qa
+npm run deploy:qa
+
+# deploy to prod
+npm run deploy:prod
 ```
 ## Endpoint
 When deploying, the Serverless CLI will output your endpoint. Example:
