@@ -21,13 +21,13 @@ npm test
 ```
 
 ## Build
-Build your deployables to the `/dist` directory:
+Build your deployables (to the `/dist` directory):
 ```
 npm run build
 ```
 
 ## Deploy
-Deploy to Lambda (from the `/dist` directory).
+Deploy to Lambda.
 ```
 # deploy to dev
 npm run deploy:dev
@@ -38,12 +38,11 @@ npm run deploy:qa
 # deploy to prod
 npm run deploy:prod
 ```
-
 ## Endpoint
 When deploying, the Serverless CLI will output your endpoint. Example:
 https://h4wu9wgyqj.execute-api.us-east-1.amazonaws.com/dev/query?myParam=Hello%2C%20World
 
-## End-to-end Test
+## Test in Lambda
 From the Lambda function in the AWS console, click the _Actions_ button dropdown, and then select _Configure test event_. In the field, enter a JSON object whose _"myParam"_ property is set to some string.
 
 **Example**
