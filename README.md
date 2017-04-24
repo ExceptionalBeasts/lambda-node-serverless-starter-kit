@@ -1,5 +1,7 @@
 # Lambda Node Boilerplate
-A barebones reference implementation and starting point for Lambda projects deployed via the Serverless CLI, and running on Node.js with Webpack, Closure Compiler, Standard JS, and Mocha/Chai/Sinon. It implements a Lambda service via an API Gateway endpoint, and for the sake of demonstration, accepts one querystring parameter named `myParam`.
+A barebones reference implementation and starting point for Lambda projects deployed via the Serverless CLI, and running on Node.js with Webpack, Closure Compiler, Standard JS, and Mocha/Chai/Sinon. For the sake of demonstration, this implementation:
+1. creates a route named "query" in API Gateway.
+1. accepts one querystring parameter named `myParam`.
 
 ## Install
 ```
@@ -29,21 +31,15 @@ npm run build
 ## Deploy
 Deploy to Lambda.
 ```
-# deploy to dev
-npm run deploy:dev
-
-# deploy to qa
-npm run deploy:qa
-
-# deploy to prod
-npm run deploy:prod
+# deploy to stage "dev" in AWS region "us-east-1" (N. Virginia):
+npm run deploy -- --stage dev --region us-east-1
 ```
 ## Endpoint
 When deploying, the Serverless CLI will output your endpoint. Example:
 https://h4wu9wgyqj.execute-api.us-east-1.amazonaws.com/dev/query?myParam=Hello%2C%20World
 
 ## Test in Lambda
-From the Lambda function in the AWS console, click the _Actions_ button dropdown, and then select _Configure test event_. In the field, enter a JSON object whose _"myParam"_ property is set to some string.
+From the Lambda service in the AWS console, click the _Actions_ button dropdown, and then select _Configure test event_. In the field, enter a JSON object whose _"myParam"_ property is set to some string.
 
 **Example**
 ```javascript

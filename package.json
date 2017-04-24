@@ -40,9 +40,7 @@
   "main": "index.js",
   "scripts": {
     "build": "concurrently \"npm run lint\" \"npm test\" \"webpack --progress --colors\"",
-    "deploy:dev": "cd dist && sls deploy --stage dev --region us-east-1 -v",
-    "deploy:qa": "cd dist && sls deploy --stage qa --region us-east-1 -v",
-    "deploy:prod": "cd dist && sls deploy --stage prod --region us-east-1 -v",
+    "deploy": "cd dist && sls deploy -v",
     "lint": "eslint src/",
     "setup": "npm i serverless aws-sdk -g & npm i",
     "test": "mocha-webpack --webpack-config webpack.config.test.js \"src/**/*.test.js\""
