@@ -27,7 +27,7 @@ npm run build
 ```
 
 ## Deploy
-Deploy to Lambda (from the `/dist` directory).
+Deploy to Lambda.
 ```
 # deploy to dev
 npm run deploy:dev
