@@ -29,14 +29,8 @@ npm run build
 ## Deploy
 Deploy to Lambda.
 ```
-# deploy to dev
-npm run deploy:dev
-
-# deploy to qa
-npm run deploy:qa
-
-# deploy to prod
-npm run deploy:prod
+# deploy to stage "dev" in AWS region "us-east-1" (N. Virginia):
+npm run deploy -- --stage dev --region us-east-1
 ```
 ## Endpoint
 When deploying, the Serverless CLI will output your endpoint. Example:
