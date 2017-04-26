@@ -3,33 +3,25 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ClosureCompilerPlugin = require('webpack-closure-compiler')
 
 module.exports = {
+  devtool: 'source-map',
   entry: {
     'lambda-service': path.join(__dirname, 'src/index')
   },
-  target: 'node',
-  output: {
-    libraryTarget: 'commonjs2',
-    path: path.join(__dirname, 'dist'),
-    filename: '[name].js'
-  },
   module: {
-    preLoaders: [
+    rules: [
       {
-        test: /\.jsx?$/,
-        loader: 'eslint-loader',
-        include: path.join(__dirname, 'src'),
-        exclude: /node_modules/
-      }
-    ],
-    loaders: [
-      {
-        test: [ /\.js.?$/ ],
+        test: [ /\.js$/ ],
         include: [/src/],
-        loader: 'babel',
-        exclude: [/\.test.js$/]
+        exclude: [/\.test.js$/, /node_modules/],
+        loader: 'babel-loader'
       },
-      { test: /\.json$/, loader: 'json' }
+      { test: /\.json$/, loader: 'json-loader' }
     ]
+  },
+  output: {
+    filename: '[name].js',
+    libraryTarget: 'commonjs2',
+    path: path.join(__dirname, 'dist')
   },
   plugins: [
     new CopyWebpackPlugin([
@@ -37,11 +29,13 @@ module.exports = {
     ]),
     new ClosureCompilerPlugin({
       compiler: {
-        language_in: 'ECMASCRIPT6',
+        language_in: 'ECMASCRIPT5',
         language_out: 'ECMASCRIPT5',
-        compilation_level: 'SIMPLE'
+        compilation_level: 'SIMPLE',
+        create_source_map: true
       },
       concurrency: 3
     })
-  ]
+  ],
+  target: 'node'
 }
