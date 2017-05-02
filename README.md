@@ -1,4 +1,4 @@
-# Lambda Node Serverless Boilerplate
+# Lambda Node Serverless Starter Kit
 A barebones reference implementation and starting point for Lambda projects deployed via the Serverless CLI, and running on Node.js with Webpack, Closure Compiler, Standard JS, and Mocha/Chai/Sinon. For the sake of demonstration, this implementation:
 1. creates a route named "query" in API Gateway.
 1. accepts one querystring parameter named `myParam`.
